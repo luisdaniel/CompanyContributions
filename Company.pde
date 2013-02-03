@@ -11,54 +11,57 @@ class Company {
   float pacObama;
   float pacRep;
   RShape arrow;
+  int sectorSize;
   int x;
   int y = int(height/2);
   PVector pos = new PVector(x, y);
   PVector targetPos = new PVector();
-  
+
   float scaling = 0;
   float targetScaling;
-  
+
+
+  boolean hideArrow = true;
   boolean highlight = false;
   boolean isInside = false;
   boolean hidden = false;
   boolean showInfo = false;
-  
-  
+
+
   void render() {
-    arrow = RG.loadShape("upArrow.svg");
-    arrow.setFill(true);
-    pushMatrix();
-    {
-      scale(scaling);
-      translate(pos.x, pos.y);
-      arrow.children[0].draw();
+    if (!hideArrow) {
+      arrow = RG.loadShape("upArrow.svg");
+      arrow.setFill(true);
+      pushMatrix();
+      {
+        //println(scaling);
+        //scale(scaling);
+        translate(pos.x, height/2);
+        arrow.children[0].draw();
+        fill(0);
+        text(name, 0, -200);
+      }
+      popMatrix();
     }
-    popMatrix();
   }
-  
-  
-  
+
+
+
   void update() {
     scaling = lerp(scaling, targetScaling, .1);
   }
-  
-  
-  
+
+
   void fromCSV(String[] input) {
     sector = input[0];
     name = input[1];
     percent = float(input[2]);
-    targetScaling = percent;
+    //targetScaling = percent;
     points = float(input[3]);
     individualObama = float(input[4]);
     individualRep = float(input[5]);
     pacObama = float(input[6]);
     pacRep = float(input[7]);
-  
   }
-  
-  
-  
-  
 }
+
