@@ -1,6 +1,6 @@
 
 
-class CompanyBin {
+class CompanyBin implements Comparable {
   
   String sector;
   ArrayList<Company> companyList = new ArrayList();
