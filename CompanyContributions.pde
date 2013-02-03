@@ -4,12 +4,18 @@ ArrayList<Company> companyList = new ArrayList();
 ArrayList<CompanyBin> binList = new ArrayList();
 HashMap<String, CompanyBin> binHash = new HashMap();
 
+
+int interval = 0;
+
+
+
 void setup () {
   size(1200, 800);
   smooth(4);
   loadCompanies();
   Collections.sort(binList);
   Collections.reverse(binList);
+  sortBySector();
 }
 
 void draw() {
@@ -17,6 +23,7 @@ void draw() {
   loadBackground();
   for (Company c:companyList) {
     c.update();
+    c.render();
   }
 }
 
@@ -27,6 +34,8 @@ void loadCompanies() {
     Company c = new Company();
     c.fromCSV(rows[i].split(","));
     companyList.add(c);
+    RG.init(this);
+    RG.setPolygonizer(RG.ADAPTATIVE);
     String sector = c.sector;
     if ( binHash.containsKey(sector)) {
       CompanyBin bin = binHash.get(sector);
@@ -40,6 +49,25 @@ void loadCompanies() {
     }
   }
 }
+
+
+void sortBySector() {
+  ///size
+  for (int i = 0; i < binList.size(); i++) {
+    CompanyBin bin = binList.get(i);
+    println("in here tsfojn");
+    println(bin.companyList.size());
+    for (int j = 0 ; j < bin.companyList.size(); j++) {
+      Company c = bin.companyList.get(j);
+      interval = width/(bin.companyList.size()+1);
+      println("I'm in here!");
+      c.x = interval*(j+1);
+      println(c.x);
+      //set x and y according to interval
+    }
+  }
+}
+
 
 //void sortByCompany() {
 //  for (int i = 0; i < binList.size(); i++) {
