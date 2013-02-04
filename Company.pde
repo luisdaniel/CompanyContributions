@@ -49,7 +49,7 @@ class Company {
         b = individualObama;
         //float h = (r + b)/2;
         if ( r == 0 && b == 0) {
-          fill(100);
+          fill(100, recAlpha);
           rect(0, 0, 10, recHeight);
         } 
         else {
@@ -62,7 +62,7 @@ class Company {
         {
           rotate(-PI/2);
           //text(name, -textWidth(name)/2, recHeight+30);
-          fill(0);
+          fill(0, recAlpha);
           textSize(12);
           //float textPos = (percent < 0) ? 10: recHeight + 10;
           text(name + " " + nf(percent, 0, 2), -textWidth(name + " " + nf(percent, 0, 2)) - recHeight - 10, +10);
@@ -87,7 +87,6 @@ class Company {
 
 
   void update() {
-    //scaling = lerp(scaling, targetScaling, .1);
     recHeight = lerp(recHeight, targetRecHeight, .1);
     recAlpha = lerp(recAlpha, targetRecAlpha, .1);
   }
