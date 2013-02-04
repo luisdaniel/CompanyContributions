@@ -1,0 +1,11 @@
+Sector,Company Name,percent,points,individualObama,individualRep,pacObama,pacRep
+Energy,Exxon,23,34,4000,4500,200,1000
+Financial,BofA,23,54,200,23000,1000,800
+Service,Applebees,12,76,10000,12000,3400,9000
+Technology,Apple,45,21,23000,100,12000,100
+Energy,Chevron,12,34,4000,4500,200,1000
+Financial,Citigroup,13,54,200,23000,1000,800
+Service,Chillis,56,76,10000,12000,3400,9000
+Technology,Microsoft,23,21,23000,100,12000,100
+Technology,AMD,43,21,23000,100,12000,100
+Technology,IBM,11,21,23000,100,12000,100
