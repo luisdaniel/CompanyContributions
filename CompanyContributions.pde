@@ -29,6 +29,7 @@ void draw() {
     //println(c.name);
   }
   loadBackground();
+  saveFrame();
 }
 
 
